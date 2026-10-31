@@ -17,16 +17,20 @@
 			<span class="wordmark-icon" aria-hidden="true">R</span>
 			<span>ROYAL <span class="wordmark-light">TABLE</span></span>
 		</a>
-		<button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
-			<span></span><span></span>
-		</button>
 		<nav class="main-nav" id="main-nav" aria-label="Main navigation">
 			<a href="#menu">The menu</a>
-			<a href="#menu-payment">Payment</a>
+			<a href="#gallery">Gallery</a>
+			<a href="#reviews">Reviews</a>
 			<a href="#story">Our story</a>
 			<a href="#visit">Visit us</a>
 			<a class="nav-book" href="#reservation">Book a table <span aria-hidden="true">↗</span></a>
 		</nav>
+		<button class="cart-toggle" type="button" aria-label="Open shopping cart" aria-controls="cart-drawer" aria-expanded="false">
+			<span class="cart-toggle-label">Your order</span><span class="cart-count" aria-live="polite">0</span>
+		</button>
+		<button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+			<span></span><span></span>
+		</button>
 	</header>
 
 	<main>
@@ -39,7 +43,7 @@
 				<p class="hero-copy">Gather well. Eat generously. Make an evening of it.</p>
 				<div class="hero-actions">
 					<a class="button button-gold" href="#reservation">Reserve your table <span aria-hidden="true">↗</span></a>
-					<a class="text-link" href="#menu-payment">Card payment options <span aria-hidden="true">↓</span></a>
+					<a class="text-link" href="#menu">Order from the menu <span aria-hidden="true">↓</span></a>
 					<a class="text-link" href="#menu">Explore the menu <span aria-hidden="true">↓</span></a>
 				</div>
 			</div>
@@ -50,16 +54,6 @@
 		<section class="welcome-strip" aria-label="Restaurant details">
 			<p>SEASONAL, ALWAYS</p><span aria-hidden="true">✳</span><p>LOCALLY SOURCED</p><span aria-hidden="true">✳</span><p>MADE FOR SHARING</p>
 		</section>
-
-		<aside class="menu-payment section-wrap" id="menu-payment" aria-label="Card payment option">
-			<div class="menu-payment-icon" aria-hidden="true">CARD</div>
-			<div class="menu-payment-copy">
-				<p class="eyebrow">Payment option</p>
-				<h2>Pay online by card</h2>
-				<p id="menu-payment-note">Online card payments aren’t connected yet. Stripe setup is required; this page never asks for card details.</p>
-			</div>
-			<button class="button menu-payment-button" type="button" disabled aria-describedby="menu-payment-note">Pay by card</button>
-		</aside>
 
 		<section class="menu-section section-wrap" id="menu" aria-labelledby="menu-title">
 			<div class="section-heading">
@@ -76,21 +70,25 @@
 				<button class="menu-filter" type="button" data-category="dessert" aria-pressed="false">Dessert</button>
 			</div>
 			<div class="menu-grid">
-				<article class="dish" data-category="small plates">
+				<article class="dish" data-dish-id="garden-plate" data-category="small plates">
 					<div class="dish-image"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85" alt="Colorful seasonal vegetables with fresh herbs" loading="lazy"><span class="dish-tag">A HOUSE FAVORITE</span></div>
 					<div class="dish-details"><div><h3>Garden on a plate</h3><p>Whipped feta, market greens, toasted seeds</p></div><span class="dish-price">$16</span></div>
+					<button class="button add-to-cart" type="button" data-add-to-cart>Add to order <span aria-hidden="true">+</span></button>
 				</article>
-				<article class="dish" data-category="mains">
+				<article class="dish" data-dish-id="sunday-roast" data-category="mains">
 					<div class="dish-image"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85" alt="Slow-roasted steak served with fresh herbs" loading="lazy"></div>
 					<div class="dish-details"><div><h3>The Sunday roast</h3><p>Wood-fired beef, crispy potatoes, jus</p></div><span class="dish-price">$34</span></div>
+					<button class="button add-to-cart" type="button" data-add-to-cart>Add to order <span aria-hidden="true">+</span></button>
 				</article>
-				<article class="dish" data-category="mains">
+				<article class="dish" data-dish-id="golden-risotto" data-category="mains">
 					<div class="dish-image"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=85" alt="Freshly plated seasonal dinner with vegetables" loading="lazy"></div>
 					<div class="dish-details"><div><h3>Golden hour risotto</h3><p>Wild mushroom, parmesan, crispy sage</p></div><span class="dish-price">$27</span></div>
+					<button class="button add-to-cart" type="button" data-add-to-cart>Add to order <span aria-hidden="true">+</span></button>
 				</article>
-				<article class="dish" data-category="dessert">
+				<article class="dish" data-dish-id="berry-cream" data-category="dessert">
 					<div class="dish-image"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85" alt="A delicate berry dessert finished with cream" loading="lazy"><span class="dish-tag">SAVE ROOM</span></div>
 					<div class="dish-details"><div><h3>Berry & cream</h3><p>Vanilla custard, summer berries, shortbread</p></div><span class="dish-price">$12</span></div>
+					<button class="button add-to-cart" type="button" data-add-to-cart>Add to order <span aria-hidden="true">+</span></button>
 				</article>
 			</div>
 			<a class="menu-link" href="#reservation">There’s more where that came from <span aria-hidden="true">↗</span></a>
@@ -103,6 +101,29 @@
 				<h2 id="story-title">The best nights<br>start <em>around a table.</em></h2>
 				<p>Royal Table is a neighborhood dining room with a soft spot for big flavors and long evenings. Our kitchen follows the seasons, our bar pours with a little generosity, and there’s always room for one more.</p>
 				<a class="button button-outline" href="#visit">A little about us <span aria-hidden="true">↗</span></a>
+			</div>
+		</section>
+
+		<section class="gallery-section section-wrap" id="gallery" aria-labelledby="gallery-title">
+			<div class="section-heading">
+				<div><p class="eyebrow"><span></span> A seat at our table</p><h2 id="gallery-title">A taste of <em>the room.</em></h2></div>
+				<p class="section-intro">Good food, warm spaces, and reasons to gather.</p>
+			</div>
+			<div class="gallery-grid">
+				<figure class="gallery-item gallery-item-tall"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85" alt="Candlelit table prepared for an evening meal" loading="lazy"><figcaption>Evenings around the table</figcaption></figure>
+				<figure class="gallery-item"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85" alt="Fresh seasonal vegetables with herbs" loading="lazy"><figcaption>Made with the season</figcaption></figure>
+				<figure class="gallery-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Warm restaurant dining room ready for guests" loading="lazy"><figcaption>Our neighborhood dining room</figcaption></figure>
+				<figure class="gallery-item"><img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=900&q=85" alt="A beautifully arranged dinner table for a celebration" loading="lazy"><figcaption>Celebrations, big and small</figcaption></figure>
+				<figure class="gallery-item gallery-item-wide"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85" alt="Dinner gathering decorated for a special occasion" loading="lazy"><figcaption>Gather close</figcaption></figure>
+			</div>
+		</section>
+
+		<section class="reviews-section" id="reviews" aria-labelledby="reviews-title">
+			<div class="section-wrap">
+				<div class="section-heading">
+					<div><p class="eyebrow"><span></span> Notes from our guests</p><h2 id="reviews-title">Kind words, <em>when shared.</em></h2></div>
+				</div>
+				<p class="reviews-empty">We don’t have verified customer reviews to share yet. Check back after our guests have had a chance to tell their stories.</p>
 			</div>
 		</section>
 
@@ -126,9 +147,17 @@
 			</form>
 		</section>
 
-		<section class="visit-section section-wrap" id="visit" aria-labelledby="visit-title">
-			<div><p class="eyebrow"><span></span> Come on in</p><h2 id="visit-title">Meet us <em>here.</em></h2></div>
-			<div class="visit-details"><p><strong>12 King Street, Old Town</strong><br>Brooklyn, NY 11201</p><p><strong>Tuesday – Sunday</strong><br>5 pm till late</p><a href="https://maps.google.com/?q=12+King+Street+Brooklyn+NY" target="_blank" rel="noreferrer">Get directions <span aria-hidden="true">↗</span></a></div>
+		<section class="contact-section section-wrap" id="visit" aria-labelledby="visit-title">
+			<div class="contact-heading"><p class="eyebrow"><span></span> Come on in</p><h2 id="visit-title">Meet us <em>here.</em></h2><p>Questions, celebrations, or just saying hello — we’d love to hear from you.</p></div>
+			<div class="contact-details">
+				<p><strong>Visit</strong><br>12 King Street, Old Town<br>Brooklyn, NY 11201</p>
+				<p><strong>Hours</strong><br>Tuesday – Sunday<br>5 pm till late</p>
+				<p><strong>Phone</strong><br>Number coming soon</p>
+				<p><strong>WhatsApp</strong><br>Number needed to enable chat</p>
+				<p><strong>Email</strong><br>Address coming soon</p>
+				<a class="contact-directions" href="https://maps.google.com/?q=12+King+Street+Brooklyn+NY" target="_blank" rel="noreferrer">Get directions <span aria-hidden="true">↗</span></a>
+			</div>
+			<iframe class="location-map" title="Map showing Royal Table at 12 King Street, Brooklyn" src="https://maps.google.com/maps?q=12%20King%20Street%2C%20Brooklyn%2C%20NY%2011201&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 		</section>
 	</main>
 
@@ -137,5 +166,19 @@
 		<p>Made for good company.</p>
 		<span>© <span id="current-year"></span> ROYAL TABLE</span>
 	</footer>
+
+	<div class="cart-backdrop" hidden></div>
+	<aside class="cart-drawer" id="cart-drawer" aria-label="Your order" aria-hidden="true">
+		<div class="cart-header"><div><p class="eyebrow">Your picks</p><h2>Your order <span class="cart-count-label">(0)</span></h2></div><button class="cart-close" type="button" aria-label="Close shopping cart">×</button></div>
+		<p class="cart-message" role="status" aria-live="polite"></p>
+		<div class="cart-items"></div>
+		<div class="cart-empty"><p>Your order is empty.</p><button class="button button-outline continue-shopping" type="button">Browse the menu</button></div>
+		<div class="cart-footer" hidden>
+			<div class="cart-subtotal"><span>Subtotal</span><strong>$0.00</strong></div>
+			<p>Taxes and any applicable fees are not included. Online checkout is not connected yet.</p>
+			<button class="button checkout-button" type="button" disabled>Card checkout coming soon</button>
+		</div>
+	</aside>
+	<p class="cart-status" role="status" aria-live="polite"></p>
 </body>
 </html>
